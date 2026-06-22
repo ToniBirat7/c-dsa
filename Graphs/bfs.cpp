@@ -29,6 +29,17 @@ public:
             cout << "\n";
         }
     }
+
+    // Print edge directions reversed
+    void printTranspose() {
+        for (int i = 0; i < numVertices; i++) {
+            for (int neighbour : adjList[i]) {
+                cout << "Vertex " << neighbour << " is connected to:";
+                cout << i << " ";
+            }
+            cout << "\n";
+        }
+    }
 };
 
 int main() {
@@ -40,6 +51,10 @@ int main() {
     g.addEdge(2,3);
 
     g.printGraph();
+
+    cout << "\n";
+
+    g.printTranspose();
 
     return 0;
 }
