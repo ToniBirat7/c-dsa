@@ -31,14 +31,16 @@ public:
     }
 
     // Print edge directions reversed
-    void printTranspose() {
-        for (int i = 0; i < numVertices; i++) {
-            for (int neighbour : adjList[i]) {
-                cout << "Vertex " << neighbour << " is connected to:";
-                cout << i << " ";
+    Graph getTranspose() {
+        Graph transpose(numVertices);
+
+        for (int u = 0; u < numVertices; u++) {
+            for (int v : adjList[u]) {
+                transpose.addEdge(v,u);
             }
-            cout << "\n";
         }
+
+        return transpose;
     }
 };
 
@@ -50,11 +52,12 @@ int main() {
     g.addEdge(1,2);
     g.addEdge(2,3);
 
+    cout << "--- Original Graph ---" << endl;
     g.printGraph();
 
-    cout << "\n";
-
-    g.printTranspose();
-
+    cout << "\n--- Transposed Graph ---" << endl;
+    Graph g_transpose = g.getTranspose();
+    g_transpose.printGraph();
+    
     return 0;
 }
