@@ -25,7 +25,7 @@ public:
             cout << "Neighbour of Node " << i << ": ";
 
             for (int neighbour : adjList[i]) {
-                cout << neighbour;
+                cout << neighbour << " ";
             }
 
             cout << "\n";
@@ -82,6 +82,6 @@ int main() {
 
     // Run BFS starting from node 0
     g.bfs(0);
-    
+
     return 0;
 }
