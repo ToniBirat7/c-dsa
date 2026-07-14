@@ -77,5 +77,7 @@ int main() {
 
     bool existsOrNot = g.cycleExists(0, -1, visitedNodes);
 
+    cout << "\nCycle: " << existsOrNot;
+
     return 0;
 }
