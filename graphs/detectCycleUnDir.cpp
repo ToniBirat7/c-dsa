@@ -32,23 +32,31 @@ public:
         }
     }
 
-    void dfs(int u, vector<bool> &visitedNodes) {
+    bool cycleExists(int u, int parent, vector<bool> &visitedNodes) {
 
         cout << u << " ";
+        parent = u;
 
         visitedNodes[u] = true;
-      
+
         for (int v : adjList[u]) {
             if (!visitedNodes[v]) {
-                dfs(v, visitedNodes);
+                if (cycleExists(v, parent, visitedNodes)) return true;
+            }
+            else {
+                if (v != parent) {
+                return true;
+                }
             }
         }
+
+        return false;
     }
 };
 
 int main() {
 
-    Graph g(8); 
+    Graph g(8);
 
     g.addEdge(0, 1);
     g.addEdge(0, 2);
@@ -67,7 +75,7 @@ int main() {
 
     vector<bool> visitedNodes(8, false);
 
-    g.dfs(0, visitedNodes);
+    bool existsOrNot = g.cycleExists(0, -1, visitedNodes);
 
     return 0;
 }
