@@ -1,5 +1,4 @@
 // Cycle Detection in Graph (Undirected)
-
 #include <iostream>
 #include <vector>
 
@@ -63,7 +62,6 @@ int main() {
     g.addEdge(0, 3);
     g.addEdge(1, 2);
     g.addEdge(3, 4);
-
 
     g.printGraph();
 
